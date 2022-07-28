@@ -72,7 +72,7 @@ strong{font-weight: var(--fw-bold);}
     display: inline-block;
     padding: .5em 2.5em;
     background: var(--clr-accent);
-    color: var(--clr-dark);
+    color: var(--clr-light);
     text-decoration: none;
     cursor: pointer;
     font-size: .8rem;
@@ -80,6 +80,7 @@ strong{font-weight: var(--fw-bold);}
     letter-spacing: 2px;
     font-weight: var(--fw-bold);
     transition: transform 200ms ease-in-out;
+
 }
 
 .btn:hover{
@@ -148,7 +149,7 @@ header{
  .nav{
     position: fixed;
     display: flex;
-    height: 80%;
+    height: 100%;
     background: var(--clr-dark-transparent);
     color: var(--clr-light);
     flex-direction: row;
@@ -349,10 +350,7 @@ header{
 
  }
 
- .about-me{
-    max-width: 1000px;
-    margin: 0 auto;
- }
+
 
  @media (min-width:600px){
     .about-me{
@@ -368,14 +366,15 @@ header{
 
     .section__title--about{
         grid-area: title;
+
     }
     .section__subtitle--about{
         grid-column: 1/-1;
         grid-row:2;
         position: relative;
         left: -2em;
-        width: calc(100% +2em);
-        padding-left: 1em;
+        width: 100%;
+        padding-left: 5em;
         padding-right: calc(200px + 4em);
     }
 
@@ -386,6 +385,133 @@ header{
     }
  }
 
+ /*Skills*/
+
+ .section__subtitle--skill{
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+    padding: .25em 1em;
+ }
+
+ .skills{
+    max-width: 1200px;
+    margin: 0 auto;
+ }
+
+
+
+ @media (min-width:800px){
+    .skills{
+        display: list-item;
+        list-style: none;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+        "title img"
+        "subtitle img"
+        "text img";
+        grid-column-gap: 2em;
+
+    }
+
+    .section__title--skill{
+        grid-area: title;
+        text-align: center;
+    }
+    .section__subtitle--skill{
+        grid-column: 1/-1;
+        grid-row:2;
+        position: static;
+        left: -2em;
+        padding-left: 1em;
+        padding-right: calc(200px + 4em);
+    }
+
+ }
+
+
+ .skills__row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    
+    
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .skills__column {
+    flex: 25%;
+    max-width: 50%;
+    height: 100px;
+    padding: 0 4px;
+  }
+  
+  .skills__column img {
+    float: left;
+    width:  150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .skills__column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .skills__column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  .skill__img {
+    display: flex;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  .skill__div--img{
+    background-position: center;
+    height: 100%;
+    transition: .7s ease-in-out;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display:flex;
+
+  }
+  .skill__button{
+    height: fit-content;
+    margin: auto;
+    background-color: var(--clr-accent);
+    opacity: 0.9;
+    border:none;
+    color:#fff;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+
+.skill__div--button{
+    background-color: rgba(255, 255, 255, 0.771);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    opacity: 0;
+    cursor: pointer;
+    border: white;
+
+}
+.skill__div--img:hover .skill__div--button{
+    opacity: 1;
+    width: 100%;
+   
+    transition: all .5s;
+    transform: scale(1.2);
+  }
 /*My work*/
 
 .my-work{
@@ -409,8 +535,14 @@ header{
 .portfolio__img{
     transition: transform 750ms cubic-bezier(.5,0,.5,1),
     opacity 250ms linear;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
 }
-
+.portfolio__embed{
+    transition: transform 750ms cubic-bezier(.5,0,.5,1),
+    opacity 250ms linear;
+}
 .portfolio__item:focus{
     position:relative;
 }
@@ -421,7 +553,12 @@ header{
     opacity: .75;
 
 }
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__embed{
+    transform: scale(1.2);
+    opacity: .75;
 
+}
 /*footer*/
 .footer{
     background: #111;
