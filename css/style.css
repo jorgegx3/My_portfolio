@@ -11,18 +11,17 @@
     --fw-reg: 300;
     --fw-bold: 900;
 
-    --clr-light: #fff;
-    --clr-dark: #303030;
-    --clr-dark-transparent: rgba(48, 48, 48, 0.5); 
-    --clr-accent: #6f8cd6;
+    --clr-light: #F9F7F7;
+    --clr-dark: #112D4E;
+    --clr-accent: #3F72AF;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
 
-    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25), 
-          0.125em 0.125em 0.25em rgba(0,0,0,.15) ;
+    --bs: 0.25em 0.25em 0.75em #112D4E, 
+          0.125em 0.125em 0.25em #112D4E;
 
 }
 
@@ -120,9 +119,10 @@ strong{font-weight: var(--fw-bold);}
  .section__subtitle--intro,
  .section__subtitle--about{
     background: var(--clr-accent);
-    font-family: var(--ff-secondary);
+    font-family: var(--ff-primary);
     margin-bottom: 1em;
     padding: .25em 1em;
+    
  }
 
  .section__subtitle--work{
@@ -140,7 +140,7 @@ header{
 
  .logo{
     max-width: 80px;
-    color:black;
+    
     position: fixed;
     top:0;
     left:0;
@@ -150,8 +150,9 @@ header{
     position: fixed;
     display: flex;
     height: 100%;
-    background: var(--clr-dark-transparent);
+    background: rgba(105, 105, 105, 0.463);
     color: var(--clr-light);
+    text-shadow: #112D4E;
     flex-direction: row;
     top: 0;
     bottom: 0;
@@ -257,6 +258,7 @@ header{
 
 .section__subtitle--intro{
     display: inline-block;
+
 }
 
  @media (min-width: 600px){
@@ -277,6 +279,7 @@ header{
         min-width: 250px;
         position: relative;
         z-index: 2;
+        
     }
 
     .section__subtitle--intro{
@@ -287,8 +290,39 @@ header{
         position: relative;
         left: -1.5em;
         width: calc(100% + 1.5em);
+        margin: auto;
+        color: var(--clr-light);
+        text-shadow: 2px 2px var(--clr-dark), 2px 2px var(--clr-dark), 2px 2px var(--clr-dark);
     }
- }
+        /* DEMO-SPECIFIC STYLES */
+.typewriter div p {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid var(--clr-dark); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0;
+    margin-left: auto;
+     /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--clr-dark) }
+  }
+    }
+
 
  /* My services Section (Education) */
 
@@ -380,8 +414,14 @@ header{
 
     .about-me__img{
         grid-area: img;
-        position: relative;
-        z-index: 2;
+        position: right;
+        
+        width: 100%;
+        height: auto;
+        border-bottom: 8px solid var(--clr-accent);
+        border-radius: 50%;
+        object-fit: contain;
+        z-index: 1;
     }
  }
 
@@ -561,7 +601,7 @@ header{
 }
 /*footer*/
 .footer{
-    background: #111;
+    background: var(--clr-dark);
     color: var(--clr-accent);
     text-align: center;
     padding: 2.5em 0;
