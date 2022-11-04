@@ -464,6 +464,18 @@ header{
 
  }
 
+ .about-me__img{
+    grid-area: img;
+    align-items: center;
+    border-radius: 100%;
+    width: 50%;
+    height: auto;
+    z-index: 1;
+    box-shadow: var(--shadow-elevation-high);
+    border: 4px solid var(--clr-dark);
+    
+}
+     
 
 
  @media (min-width:600px){
@@ -496,8 +508,8 @@ header{
         grid-area: img;
         position: center;
         border-radius: 100%;
-        width: 250px;
-        height: 250px;
+        width: 100%;
+        height: auto;
         z-index: 1;
         box-shadow: var(--shadow-elevation-high);
         border: 4px solid var(--clr-dark);
@@ -562,8 +574,8 @@ header{
   .skills__column {
     flex: 25%;
     max-width: 50%;
-    height: 100px;
-    padding: 0 4px;
+    height: 130px;
+    margin-bottom: 50px;
   }
   
   .skills__column img {
@@ -571,6 +583,7 @@ header{
     width:  150px;
     height: 150px;
     object-fit: cover;
+    
   }
   
   /* Responsive layout - makes a two column-layout instead of four columns */
